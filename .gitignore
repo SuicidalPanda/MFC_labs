@@ -1,43 +1,35 @@
-# Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
-
-# Precompiled Headers
 *.gch
 *.pch
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
 *.mod
 *.smod
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
-
-# Executables
 *.exe
 *.out
 *.app
-
 *.ipch
 *.sdf
 *.ilk
 *.pdb
-
-Labs/Debug/*
 *.opensdf
 *.ilk
-Labs/Debug/Lesson_2.pdb
 *.pdb
 *.log
-
-C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug
+Labs/Debug/Lesson_1.ilk
+Labs/Debug/Lesson_1.pdb
+Labs/Debug/Lesson_2.ilk
+Labs/Debug/Lesson_2.pdb
+Labs/Labs.v12.suo
+Labs/Lesson_1/Debug/Lesson_1.log
+Labs/Lesson_1/Debug/Lesson_1.tlog/CL.read.1.tlog
+Labs/Lesson_1/Debug/vc120.idb
+Labs/Lesson_2/Debug/Lesson_2.log
