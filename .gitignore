@@ -30,3 +30,7 @@
 
 *.ipch
 *.sdf
+*.ilk
+*.pdb
+
+Labs/Debug/*
