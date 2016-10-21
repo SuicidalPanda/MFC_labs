@@ -62,6 +62,9 @@ BEGIN_MESSAGE_MAP(CLesson_3Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(Exit_btn, &CLesson_3Dlg::OnBnClickedbtn)
+	ON_WM_MOUSEMOVE()
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -150,3 +153,43 @@ HCURSOR CLesson_3Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CLesson_3Dlg::OnBnClickedbtn()
+{
+	// TODO: Add your control notification handler code here
+	OnOK();
+}
+
+
+void CLesson_3Dlg::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+	//CDialogEx::OnMouseMove(nFlags, point);
+
+	if ((nFlags & MK_LBUTTON) == MK_LBUTTON)
+	{
+		CClientDC dc(this);
+
+		// dc.SetPixel(point.x, point.y, RGB(123,211,98)); 
+
+		CPen NewPen(PS_SOLID, 5, RGB(255, 0, 0));
+		dc.SelectObject(&NewPen);
+
+		dc.MoveTo(m_PrevX, m_PrevY);
+		dc.LineTo(point.x, point.y);
+		m_PrevX = point.x;
+		m_PrevY = point.y;
+	}
+
+}
+
+
+void CLesson_3Dlg::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	//CDialogEx::OnLButtonDown(nFlags, point);
+	m_PrevX = point.x;
+	m_PrevY = point.y;
+}

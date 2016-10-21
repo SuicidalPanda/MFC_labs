@@ -12,6 +12,8 @@ class CLesson_3Dlg : public CDialogEx
 public:
 	CLesson_3Dlg(CWnd* pParent = NULL);	// standard constructor
 
+	int m_PrevX;
+	int m_PrevY;
 // Dialog Data
 	enum { IDD = IDD_LESSON_3_DIALOG };
 
@@ -29,4 +31,8 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedbtn();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
