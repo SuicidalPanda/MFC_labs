@@ -35,3 +35,9 @@
 
 Labs/Debug/*
 *.opensdf
+*.ilk
+Labs/Debug/Lesson_2.pdb
+*.pdb
+*.log
+
+C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug
