@@ -1,6 +1,15 @@
-﻿Build started 10/21/2016 4:29:11 AM.
+﻿Build started 10/21/2016 4:30:10 AM.
      1>Project "C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Lesson_1\Lesson_1.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         A:\VS\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Lesson_1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         A:\VS\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Lesson_1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Lesson_1.cpp Lesson_1Dlg.cpp
+         Lesson_1Dlg.cpp
+         Lesson_1.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /IDebug\ /nologo /fo"Debug\Lesson_1.res" Lesson_1.rc 
+       Link:
          A:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_1.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:A:\VS\VC\Include\Manifest\dpiaware.manifest /DEBUG /PDB:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_1.lib" /MACHINE:X86 Debug\Lesson_1.res
          Debug\Lesson_1.obj
          Debug\Lesson_1Dlg.obj
@@ -10,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.92
+Time Elapsed 00:00:04.80
