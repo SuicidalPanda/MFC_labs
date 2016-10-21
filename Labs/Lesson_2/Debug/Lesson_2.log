@@ -1,4 +1,4 @@
-﻿Build started 10/21/2016 4:25:18 AM.
+﻿Build started 10/21/2016 4:29:11 AM.
      1>Project "C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Lesson_2\Lesson_2.vcxproj" on node 3 (Build target(s)).
      1>Link:
          A:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_2.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:A:\VS\VC\Include\Manifest\dpiaware.manifest /DEBUG /PDB:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Панков\Desktop\GitHub\MFC_labs\Labs\Debug\Lesson_2.lib" /MACHINE:X86 Debug\Lesson_2.res
@@ -10,4 +10,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.84
+Time Elapsed 00:00:00.80
