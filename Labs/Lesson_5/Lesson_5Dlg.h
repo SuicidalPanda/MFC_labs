@@ -29,4 +29,11 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	int mSpeedEdit;
+	afx_msg void OnEnChangeEdit();
+	afx_msg void OnFileCurrentspeed();
+	afx_msg void OnFileExit();
+	afx_msg void OnHelpAbout();
+	afx_msg void OnHelpSayhello();
 };

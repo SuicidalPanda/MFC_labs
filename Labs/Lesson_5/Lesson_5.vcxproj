@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{58986ED2-CC74-445A-9BE8-75F6F6CEEC84}</ProjectGuid>
+    <ProjectGuid>{27CBEBC1-8161-4C2B-BBA4-4754EC8558C6}</ProjectGuid>
     <RootNamespace>Lesson_5</RootNamespace>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -127,4 +127,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Lesson_5.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
