@@ -62,6 +62,7 @@ BEGIN_MESSAGE_MAP(CLesson4Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 
@@ -150,3 +151,29 @@ HCURSOR CLesson4Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CLesson4Dlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	char strnChar[10];
+	char strnRepCnt[10];
+	char strnFlags[10];
+
+	CString strKeyPressed;
+
+	_itoa_s(nChar, strnChar, 10);
+	_itoa_s(nRepCnt, strnRepCnt, 10);
+	_itoa_s(nFlags, strnFlags, 10);
+
+	strKeyPressed = (CString)"You pressed the key: \nnChar = ";
+	strKeyPressed += strnChar;
+	strKeyPressed += "\nnReptCnt = ";
+	strKeyPressed += strnRepCnt; 
+	strKeyPressed += "\nnFlags = ";
+	strKeyPressed += strnFlags;
+	MessageBox(strKeyPressed);
+
+	CDialogEx::OnKeyDown(nChar, nRepCnt, nFlags);
+}
