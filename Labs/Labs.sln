@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_8", "Lesson_8\Lesson
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_9", "Lesson_9\Lesson_9.vcxproj", "{D97AB41B-89DC-48CC-BAED-A4ED3A59A1A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_10", "Lesson_10\Lesson_10.vcxproj", "{6FC4F2C5-7DC3-4818-A977-B7F12B3DA380}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -63,6 +65,10 @@ Global
 		{D97AB41B-89DC-48CC-BAED-A4ED3A59A1A3}.Debug|Win32.Build.0 = Debug|Win32
 		{D97AB41B-89DC-48CC-BAED-A4ED3A59A1A3}.Release|Win32.ActiveCfg = Release|Win32
 		{D97AB41B-89DC-48CC-BAED-A4ED3A59A1A3}.Release|Win32.Build.0 = Release|Win32
+		{6FC4F2C5-7DC3-4818-A977-B7F12B3DA380}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6FC4F2C5-7DC3-4818-A977-B7F12B3DA380}.Debug|Win32.Build.0 = Debug|Win32
+		{6FC4F2C5-7DC3-4818-A977-B7F12B3DA380}.Release|Win32.ActiveCfg = Release|Win32
+		{6FC4F2C5-7DC3-4818-A977-B7F12B3DA380}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
