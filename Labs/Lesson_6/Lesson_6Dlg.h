@@ -29,4 +29,11 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedBtn();
+	CString mResultEdit;
+	afx_msg void OnClickedOkcancelBtn();
+	afx_msg void OnClickedYesnocancelBtn();
+	afx_msg void OnClickedRetrycancelBtn();
+	afx_msg void OnClickedYesnoBtn();
 };

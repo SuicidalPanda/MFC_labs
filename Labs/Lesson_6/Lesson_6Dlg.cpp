@@ -49,6 +49,7 @@ END_MESSAGE_MAP()
 
 CLesson_6Dlg::CLesson_6Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CLesson_6Dlg::IDD, pParent)
+	, mResultEdit(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -56,12 +57,19 @@ CLesson_6Dlg::CLesson_6Dlg(CWnd* pParent /*=NULL*/)
 void CLesson_6Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, ResultEdit, mResultEdit);
 }
 
 BEGIN_MESSAGE_MAP(CLesson_6Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(Exit_Btn, &CLesson_6Dlg::OnBnClickedBtn)
+	ON_BN_CLICKED(Exit_Btn, &CLesson_6Dlg::OnBnClickedBtn)
+	ON_BN_CLICKED(OkCancel_Btn, &CLesson_6Dlg::OnClickedOkcancelBtn)
+	ON_BN_CLICKED(YesNoCancel_Btn, &CLesson_6Dlg::OnClickedYesnocancelBtn)
+	ON_BN_CLICKED(RetryCancel_Btn, &CLesson_6Dlg::OnClickedRetrycancelBtn)
+	ON_BN_CLICKED(YesNo_Btn, &CLesson_6Dlg::OnClickedYesnoBtn)
 END_MESSAGE_MAP()
 
 
@@ -150,3 +158,114 @@ HCURSOR CLesson_6Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+void CLesson_6Dlg::OnBnClickedBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	int iResults;
+	iResults = MessageBox(L"Exit?",
+		L"Are you sure want to Exit?",
+		MB_YESNO + MB_ICONQUESTION);
+
+	if (iResults == IDYES)
+		OnOK();
+}
+
+
+void CLesson_6Dlg::OnClickedOkcancelBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	int iResults;
+
+	iResults = MessageBox(L"You want Ok and Cancel buttons.",
+		L"I am the second parametr of the MessageBox function",
+		MB_OKCANCEL + MB_ICONSTOP);
+
+	if (iResults == IDOK)
+	{
+		mResultEdit = "You Clicked the Ok button";
+		UpdateData(FALSE);
+	}
+	if (iResults == IDCANCEL)
+	{
+		mResultEdit = "You clicked on the Cancel button";
+		UpdateData(FALSE);
+	}
+
+}
+
+
+void CLesson_6Dlg::OnClickedYesnocancelBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	int iResults;
+
+	iResults = MessageBox(L"You want Yes, No and Cancel buttons.",
+		L"I am the second parameter of the MessageBox function",
+		MB_YESNOCANCEL + MB_ICONINFORMATION);
+
+	if (iResults == IDYES)
+	{
+		mResultEdit = "You clicked on the Yes button.";
+		UpdateData(FALSE);
+	}
+	if (iResults == IDNO)
+	{
+		mResultEdit = "You clicked on the No button";
+		UpdateData(FALSE);
+	}
+	if (iResults == IDCANCEL)
+	{
+		mResultEdit = "You clicked on the Cancel button.";
+		UpdateData(FALSE);
+	}
+}
+
+
+void CLesson_6Dlg::OnClickedRetrycancelBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	int iResults;
+
+	iResults = MessageBox(L"You want Retry and Cancel buttons.",
+		L"I am the second parameter of the MessageBox function",
+		MB_RETRYCANCEL + MB_ICONQUESTION);
+
+	if (iResults == IDRETRY)
+	{
+		mResultEdit = "You clicked on the Retry button.";
+		UpdateData(FALSE);
+	}
+	if (iResults == IDCANCEL)
+	{
+		mResultEdit = "You clicked on the Cancel button.";
+		UpdateData(FALSE);
+	}
+
+}
+
+
+void CLesson_6Dlg::OnClickedYesnoBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	int iResults;
+	iResults = MessageBox(L"You want Yes and No buttons.",
+		L"I am the second parameter of the MessageBox function",
+		MB_YESNO + MB_ICONEXCLAMATION);
+
+	if (iResults == IDOK)
+	{
+		mResultEdit = "You clicked on the OK button.";
+		UpdateData(FALSE);
+	}
+	if (iResults == IDNO)
+	{
+		mResultEdit = "You clicked on the NO button.";
+		UpdateData(FALSE);
+	}
+
+}
