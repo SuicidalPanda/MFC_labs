@@ -59,5 +59,20 @@
     <Image Include="res\Lesson_9.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="A:\ico\boob.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="A:\ico\heart.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="A:\ico\pik.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="A:\ico\tref.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Lesson_8.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

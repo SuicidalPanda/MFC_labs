@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "afxwin.h"
 
 
 // CLesson_9Dlg dialog
@@ -29,4 +30,21 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	HICON mHeart;
+	HICON mTref;
+	HICON mBoob;
+	HICON mPik;
+	CStatic mCard1;
+	CStatic mCard2;
+	CStatic mCard3;
+	CStatic mCard4;
+	CStatic mAmountLeft;
+	double mAmtRemaining;
+	afx_msg void OnBnClickedDeal();
+	int mCards[4];
+	void DealCards();
+	HICON& PickRandomCard();
+	void CalculateWinnings();
+	afx_msg void OnBnClickedCashout();
 };

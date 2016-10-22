@@ -122,9 +122,19 @@
     <None Include="res\Lesson_9.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="A:\ico\boob.ico" />
+    <Image Include="A:\ico\heart.ico" />
+    <Image Include="A:\ico\pik.ico" />
+    <Image Include="A:\ico\tref.ico" />
+    <Image Include="res\Lesson_8.ico" />
     <Image Include="res\Lesson_9.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Lesson_9.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

@@ -51,17 +51,29 @@ CLesson_9Dlg::CLesson_9Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CLesson_9Dlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	mTref = AfxGetApp()->LoadIcon(ico_tref);
+	mBoob = AfxGetApp()->LoadIcon(ico_boob);
+	mHeart = AfxGetApp()->LoadIcon(ico_heart);
+	mPik = AfxGetApp()->LoadIcon(ico_pik);
+	mAmtRemaining = 100.0;
 }
 
 void CLesson_9Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, picCard1, mCard1);
+	DDX_Control(pDX, picCard2, mCard2);
+	DDX_Control(pDX, picCard3, mCard3);
+	DDX_Control(pDX, picCard4, mCard4);
+	DDX_Control(pDX, group_AmountLeft, mAmountLeft);
 }
 
 BEGIN_MESSAGE_MAP(CLesson_9Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(btn_Deal, &CLesson_9Dlg::OnBnClickedDeal)
+	ON_BN_CLICKED(btn_CashOut, &CLesson_9Dlg::OnBnClickedCashout)
 END_MESSAGE_MAP()
 
 
@@ -150,3 +162,88 @@ HCURSOR CLesson_9Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CLesson_9Dlg::OnBnClickedDeal()
+{
+	CString s;
+
+	mAmtRemaining -= 2.00;
+	DealCards();
+	CalculateWinnings();
+
+	s.Format(L"Amount Remaining $ %.2f", mAmtRemaining);
+	mAmountLeft.SetWindowText(s);
+}
+
+
+void CLesson_9Dlg::DealCards()
+{
+	for (int i = 0; i < 4; i++)
+		mCards[i] = 0;
+
+	mCard1.SetIcon(PickRandomCard());
+	mCard2.SetIcon(PickRandomCard());
+	mCard3.SetIcon(PickRandomCard());
+	mCard4.SetIcon(PickRandomCard());
+}
+
+
+HICON& CLesson_9Dlg::PickRandomCard()
+{
+	int num = (rand() % 4);
+
+	mCards[num]++;
+
+	switch (num)
+	{
+	case 0: return mTref;
+	case 1: return mBoob;
+	case 2: return mHeart;
+	}
+	return mPik;
+}
+
+
+void CLesson_9Dlg::CalculateWinnings()
+{
+	int pairs = 0;
+	for (int i = 0; i<4; i++)
+	{
+		if (mCards[i] == 2)
+		{
+			if (pairs>0)
+			{
+				mAmtRemaining += 3.00;
+				break;
+			}
+			else
+			{
+				pairs++;
+			}
+		}
+		else if (mCards[i] == 3)
+		{
+			mAmtRemaining += 6.00;
+			break;
+
+		}
+		else if (mCards[i] == 4)
+		{
+			mAmtRemaining += 9.00;
+			break;
+		}
+	}
+
+}
+
+
+void CLesson_9Dlg::OnBnClickedCashout()
+{
+	CString s;
+
+	s.Format(L"Good game! I have $ %.2f.", mAmtRemaining);
+	MessageBox(s, L"Thank you for game in FourUp!");
+
+	CDialog::OnCancel();
+}
