@@ -62,6 +62,12 @@ BEGIN_MESSAGE_MAP(CLesson_7Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(Exit_Btn, &CLesson_7Dlg::OnBnClickedBtn)
+//	ON_WM_TIMER()
+ON_WM_DESTROY()
+ON_WM_TIMER()
+//ON_BN_CLICKED(Draw_Btn, &CLesson_7Dlg::OnClickedDrawBtn)
+ON_BN_CLICKED(Draw_Btn, &CLesson_7Dlg::OnClickedDrawBtn)
 END_MESSAGE_MAP()
 
 
@@ -74,6 +80,20 @@ BOOL CLesson_7Dlg::OnInitDialog()
 	// Add "About..." menu item to system menu.
 
 	// IDM_ABOUTBOX must be in the system command range.
+
+	int iInstallResult;
+	iInstallResult = SetTimer(1, 50, NULL);
+	if (iInstallResult == FALSE)
+	{
+		MessageBox(L"Cannot install timer",
+			L"Error message",
+			MB_OK + MB_ICONERROR);
+	}
+
+	colorDlg.setRadio = 0;
+	mRadius = 50;
+	mDirection = 1;
+
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -122,25 +142,34 @@ void CLesson_7Dlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
 	{
-		CDialogEx::OnPaint();
+		CPaintDC dc(this);
+		CPen MyNewPen;
+
+		switch (colorDlg.setRadio)
+		{
+		case 0:
+			MyNewPen.CreatePen(PS_SOLID, 10, RGB(255, 0, 0));
+			break;
+		case 1:
+			MyNewPen.CreatePen(PS_SOLID, 10, RGB(0, 255, 0));
+			break;
+		case 2:
+			MyNewPen.CreatePen(PS_SOLID, 10, RGB(0, 0, 255));
+			break;
+		}
+
+		CPen* pOriginalPen;
+		CRect MyRectangle(20, 10, 20 + mRadius * 2, 10 + mRadius * 2);
+
+		pOriginalPen = dc.SelectObject(&MyNewPen);
+		dc.Ellipse(&MyRectangle);
+		dc.SelectObject(pOriginalPen);
 	}
+
+	UpdateData(TRUE);
 }
 
 // The system calls this function to obtain the cursor to display while the user drags
@@ -150,3 +179,49 @@ HCURSOR CLesson_7Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CLesson_7Dlg::OnBnClickedBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	OnOK();
+}
+
+
+void CLesson_7Dlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+	KillTimer(1);
+	// TODO: Add your message handler code here
+}
+
+
+void CLesson_7Dlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	//MessageBeep((WORD)-2);
+
+	mRadius = mRadius + mDirection;
+
+	if (mRadius >= 100)
+	{
+		mDirection = -1;
+	}
+	if (mRadius <= 10)
+	{
+		mDirection = 1;
+	}
+
+	OnPaint();
+	Invalidate();
+	CDialogEx::OnTimer(nIDEvent);
+}
+
+void CLesson_7Dlg::OnClickedDrawBtn()
+{
+	// TODO: Add your control notification handler code here
+
+	colorDlg.DoModal();
+}
